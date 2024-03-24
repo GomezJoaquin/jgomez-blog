@@ -10,7 +10,7 @@
             <p class="text-lg text-gray-300 mb-6">
               Soy un apasionado de la tecnología y el DevOps. En mi blog encontrarás artículos sobre desarrollo, infraestructura, automatización y más.
             </p>
-            <nuxt-link to="/jgomez-blog/blog" class="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">Explorar el Blog</nuxt-link>
+            <nuxt-link to="/blog" class="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">Explorar el Blog</nuxt-link>
             <nuxt-link to="/contacto" class="inline-block px-6 py-3 ml-4 border border-blue-500 text-blue-500 font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:text-white transition duration-300">Contactarme</nuxt-link>
           </div>
           

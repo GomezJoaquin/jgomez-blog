@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <!-- Nueva sección -->
+        <!-- ¿Qué estoy haciendo ahora? -->
         <section class="mt-16">
           <h2 class="text-3xl font-bold mb-4">¿Qué estoy haciendo ahora?</h2>
           <p class="text-lg text-gray-300">Aquí puedes encontrar una breve descripción de lo que estoy trabajando actualmente.</p>
@@ -39,7 +39,7 @@
 
 <script>
 import LayoutPrincipal from '@/layouts/LayoutPrincipal.vue';
-
+ 
 export default {
   layout: 'principal',
   components: {

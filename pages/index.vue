@@ -26,7 +26,6 @@
               </ul>
           </div>
         </div>
-
         <!-- ¿Qué estoy haciendo ahora? -->
         <section class="mt-16">
           <h2 class="text-3xl font-bold mb-4">¿Qué estoy haciendo ahora?</h2>
@@ -47,3 +46,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* Estilos específicos del componente Index */
+</style>

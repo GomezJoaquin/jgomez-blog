@@ -1,1 +1,0 @@
-import{_ as o,o as t,c,a as r,h as s}from"./DJsGRmc2.js";const a={},n={class:"text-4xl"};function l(e,_){return t(),c("section",null,[r("h1",n,[s(e.$slots,"default")]),s(e.$slots,"description")])}const f=o(a,[["render",l]]);export{f as default};

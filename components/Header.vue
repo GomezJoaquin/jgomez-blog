@@ -5,13 +5,13 @@
       <nav>
         <ul class="flex space-x-6">
           <li>
-            <nuxt-link to="/" class="text-gray-300 hover:text-white">Inicio</nuxt-link>
+            <nuxt-link to="/jgomez-blog/" class="text-gray-300 hover:text-white">Inicio</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/blog" class="text-gray-300 hover:text-white">Blog</nuxt-link>
+            <nuxt-link to="/jgomez-blog/blog" class="text-gray-300 hover:text-white">Blog</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/about" class="text-gray-300 hover:text-white">Sobre mí</nuxt-link>
+            <nuxt-link to="/jgomez-blog/about" class="text-gray-300 hover:text-white">Sobre mí</nuxt-link>
           </li>
           <li>
             <nuxt-link to="/contacto" class="text-gray-300 hover:text-white">Contacto</nuxt-link>

@@ -14,7 +14,7 @@
             class="flex flex-col justify-between rounded-lg border border-gray-200 p-4"
           >
             <!-- Cambia el nuxt-link para que apunte a la página individual de cada publicación -->
-            <nuxt-link :to="`/blog/${article.slug}`">
+            <nuxt-link :to="`/jgomez-blog/blog/${article.slug}`">
               <p class="text-xl text-gray-900">{{ article.title }}</p>
               <p class="mt-3 text-gray-500">{{ article.description }}</p>
             </nuxt-link>

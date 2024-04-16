@@ -7,31 +7,42 @@
         </h2>
       </div>
       <div class="mt-12 grid gap-16 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-        <ContentList path="/blog" v-slot="{ list }">
-          <div
-            v-for="article in list"
-            :key="article._path"
-            class="flex flex-col justify-between rounded-lg border border-gray-200 p-4"
-          >
-            <!-- Cambia el nuxt-link para que apunte a la página individual de cada publicación -->
-            <nuxt-link :to="`/jgomez-blog/blog/${article.slug}`">
-              <p class="text-xl text-gray-900">{{ article.title }}</p>
-              <p class="mt-3 text-gray-500">{{ article.description }}</p>
-            </nuxt-link>
-            <div class="mt-6">
-              <a
-                :href="`?author=${article.author}`"
-                class="text-sm font-medium text-gray-900"
-              >
-                {{ article.author }}
-              </a>
-              <div class="text-sm text-gray-500">
-                <time datetime="2020-03-16">{{ article.date }}</time>
+        <ContentList path="/blog">
+          <template #default="{ list }">
+            <div
+              v-for="article in list"
+              :key="article.slug"
+              class="flex flex-col justify-between rounded-lg border border-gray-200 p-4"
+            >
+              <!-- Cambia el nuxt-link para que apunte a la página individual de cada publicación -->
+              <nuxt-link :to="`/blog/${article.slug}`">
+                <p class="text-xl text-gray-900">{{ article.title }}</p>
+                <p class="mt-3 text-gray-500">{{ article.description }}</p>
+              </nuxt-link>
+              <div class="mt-6">
+                <a
+                  :href="`?author=${article.author}`"
+                  class="text-sm font-medium text-gray-900"
+                >
+                  {{ article.author }}
+                </a>
+                <div class="text-sm text-gray-500">
+                  <time :datetime="article.date">{{ article.date }}</time>
+                </div>
               </div>
             </div>
-          </div>
+          </template>
         </ContentList>
       </div>
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  async asyncData({ $content }) {
+    const list = await $content('blog').fetch();
+    return { list };
+  }
+};
+</script>

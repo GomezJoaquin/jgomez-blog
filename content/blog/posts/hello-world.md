@@ -1,6 +1,7 @@
 ---
 title: Alto Post
 author: Jeff
+slug: hello-world
 date: 2022-05-27
 ---
 

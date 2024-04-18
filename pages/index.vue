@@ -1,54 +1,100 @@
 <template>
-  <LayoutPrincipal>
-    <div class="min-h-screen bg-gray-900 text-white">
-      <!-- Contenido principal -->
-      <main class="max-w-7xl mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Información personal -->
-          <div>
-            <h1 class="text-4xl font-bold mb-4">¡Hola, Soy Joaquín!</h1>
-            <p class="text-lg text-gray-300 mb-6">
-              Soy un apasionado de la tecnología y el DevOps. En mi blog encontrarás artículos sobre desarrollo, infraestructura, automatización y más.
+  <div class="m-8">
+    <TheHeader />
+
+    <h1 class="font-bold text-4xl">Blog Posts</h1>
+    <ul class="flex flex-wrap">
+      <li
+        v-for="article of articles"
+        :key="article.slug"
+        class="xs:w-full md:w-1/2 px-2 xs:mb-6 md:mb-12 article-card"
+      >
+        <NuxtLink
+          :to="{ name: 'blog-slug', params: { slug: article.slug } }"
+          class="flex transition-shadow duration-150 ease-in-out shadow-sm hover:shadow-md xxlmax:flex-col"
+        >
+          <img
+            v-if="article.img"
+            class="h-48 xxlmin:w-1/2 xxlmax:w-full object-cover"
+            :src="article.img"
+          />
+
+          <div
+            class="p-6 flex flex-col justify-between xxlmin:w-1/2 xxlmax:w-full"
+          >
+            <h2 class="font-bold">{{ article.title }}</h2>
+            <p>by {{ article.author.name }}</p>
+            <p class="font-bold text-gray-600 text-sm">
+              {{ article.description }}
             </p>
-            <!-- Corregir la ruta relativa -->
-            <nuxt-link to="/jgomez-blog/blog" class="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">Explorar el Blog</nuxt-link>
-            <!-- Corregir la ruta relativa -->
-            <nuxt-link to="/jgomez-blog/contacto" class="inline-block px-6 py-3 ml-4 border border-blue-500 text-blue-500 font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:text-white transition duration-300">Contactarme</nuxt-link>
           </div>
-          
-          <!-- Intereses -->
-          <div class="flex flex-col justify-center items-center">
-            <h2 class="text-2xl font-bold mb-4">Mis Intereses</h2>
-              <ul class="text-lg text-gray-300">
-                  <li>💻 Tecnología</li>
-                  <li>🤖 DevOps</li> 
-                  <li>⚙️ Automatización</li>
-                  <li>🛠️ Desarrollo de Software</li>
-                  <li>☁️ Infraestructura en la Nube</li>
-              </ul>
-          </div>
-        </div>
-        <!-- ¿Qué estoy haciendo ahora? -->
-        <section class="mt-16">
-          <h2 class="text-3xl font-bold mb-4">¿Qué estoy haciendo ahora?</h2>
-          <p class="text-lg text-gray-300">Aquí puedes encontrar una breve descripción de lo que estoy trabajando actualmente.</p>
-        </section>
-      </main>
-    </div>
-  </LayoutPrincipal>
+        </NuxtLink>
+      </li>
+    </ul>
+    <h3 class="mb-4 font-bold text-2xl uppercase text-center">Topics</h3>
+    <ul class="flex flex-wrap mb-4 text-center">
+      <li
+        v-for="tag of tags"
+        :key="tag.slug"
+        class="xs:w-full md:w-1/3 lg:flex-1 px-2 text-center"
+      >
+        <NuxtLink :to="`/blog/tag/${tag.slug}`" class="">
+          <p
+            class="font-bold text-gray-600 uppercase tracking-wider font-medium text-ss"
+          >
+            {{ tag.name }}
+          </p>
+        </NuxtLink>
+      </li>
+    </ul>
+    <footer class="flex justify-center border-gray-500 border-t-2">
+      <p class="mt-4">
+        Created by
+        <a
+          href="https://twitter.com/debs_obrien"
+          class="font-bold hover:underline"
+          >Debbie O'Brien</a
+        >
+        at NuxtJS. See the
+        <a
+          href="https://nuxtjs.org/blog/creating-blog-with-nuxt-content"
+          class="font-bold hover:underline"
+          >tutorial</a
+        >
+        for how to build it.
+      </p>
+    </footer>
+  </div>
 </template>
 
 <script>
-import LayoutPrincipal from '@/layouts/LayoutPrincipal.vue';
- 
 export default {
-  layout: 'principal',
-  components: {
-    LayoutPrincipal,
+  async asyncData({ $content, params }) {
+    const articles = await $content('articles')
+      .only(['title', 'description', 'img', 'slug', 'author'])
+      .sortBy('createdAt', 'desc')
+      .fetch()
+    const tags = await $content('tags')
+      .only(['name', 'description', 'img', 'slug'])
+      .sortBy('createdAt', 'asc')
+      .fetch()
+    return {
+      articles,
+      tags
+    }
   }
 }
 </script>
 
-<style scoped>
-/* Estilos específicos del componente Index */
+<style class="postcss">
+.article-card {
+  border-radius: 8px;
+}
+.article-card a {
+  background-color: #fff;
+  border-radius: 8px;
+}
+.article-card img div {
+  border-radius: 8px 0 0 8px;
+}
 </style>

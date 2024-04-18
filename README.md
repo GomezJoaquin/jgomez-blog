@@ -1,42 +1,25 @@
-# Content v2 Minimal Starter
+# nuxt-content-article
 
-Look at the [Content documentation](https://content.nuxt.com/) to learn more.
+The [content module](https://content.nuxtjs.org/) is a git files based headless CMS that provides powerful features when it comes to write blogs, documentation sites or just adding content to any regular website. In this post we will go through most of the benefits of this module and discover how we can create a blog with it.
 
-## Setup
+For detailed explanation on how to create this blog, check out [the tutorial](https://nuxtjs.org/blog/creating-blog-with-nuxt-content).
 
-Make sure to install the dependencies:
+Click here to view the [demo](https://blog-with-nuxt-content.netlify.app/)
 
-```bash
-# yarn
-yarn install
+![demo of blog](https://res.cloudinary.com/nuxt/video/upload/v1588091670/demo-blog-content_shk6kw.jpg)
 
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
+## Build Setup
 
 ```bash
-npm run dev
+# install dependencies
+$ yarn
+
+# serve with hot reload at localhost:3000
+$ yarn dev
+
+# generate static project
+$ yarn generate
+
+# view a production version of your app
+$ yarn start
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
